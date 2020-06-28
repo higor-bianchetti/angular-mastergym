@@ -1,8 +1,9 @@
-<div *ngIf="afAuth.authState | async as user; else showLogin">
+<div *ngIf="user && !loading; else showLogin">
   <h1>Hello {{ user.email }}!</h1>
   <button (click)="logout()">Logout</button>
 </div>
+
 <ng-template #showLogin>
-  <p>Please login.</p>
-  <button (click)="login()">Login with Google</button>
+  <div *ngIf="loading">Loading...</div>
+  <app-login *ngIf="!loading"></app-login>
 </ng-template>

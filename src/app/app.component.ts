@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { AngularFireAuth } from "angularfire2/auth";
-import { auth } from "firebase/app";
+import { auth, User } from "firebase/app";
 
 @Component({
   selector: "app-root",
@@ -9,8 +9,15 @@ import { auth } from "firebase/app";
 })
 export class AppComponent {
   title = "mastergym";
+  user: User;
+  loading: boolean = true;
 
-  constructor(public afAuth: AngularFireAuth) {}
+  constructor(public afAuth: AngularFireAuth) {
+    this.afAuth.user.subscribe((user) => {
+      this.loading = false;
+      this.user = user;
+    });
+  }
 
   login() {
     this.afAuth.auth.signInWithEmailAndPassword(
