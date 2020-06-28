@@ -4,6 +4,7 @@ import { AngularFireModule } from "angularfire2";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { environment } from "../environments/environment";
+import { AngularFireAuth } from "angularfire2/auth";
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +13,7 @@ import { environment } from "../environments/environment";
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
