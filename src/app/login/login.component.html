@@ -6,14 +6,27 @@
     </div>
     <div class="row">
       <div class="col-md-8 offset-md-2">
+        <div *ngIf="!formIsValid" class="alert alert-danger mt-3" role="alert">
+          {{errorMessage}}
+        </div>
         <form [formGroup]="formLogin">
           <div class="form-group">
             <label for="email">Email Address</label>
             <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">
+            <div *ngIf="formLogin.controls['email'].invalid && formLogin.controls['email'].dirty"
+              class="alert alert-warning mt-3" role="alert">
+              <span *ngIf="formLogin.controls['email'].errors.required">Email is required</span>
+              <span *ngIf="formLogin.controls['email'].errors.email">Invalid email</span>
+            </div>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password">
+            <input type="password" (key.enter)="login()" class="form-control" formControlName="password" id="password"
+              placeholder="Password">
+            <div *ngIf="formLogin.controls['password'].invalid && formLogin.controls['password'].dirty"
+              class="alert alert-warning mt-3" role="alert">
+              <span *ngIf="formLogin.controls['password'].errors.required">Password is required</span>
+            </div>
           </div>
           <div class="row">
             <div class="col-sm-4 offset-sm-4">

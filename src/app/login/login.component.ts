@@ -9,6 +9,8 @@ import { AngularFireAuth } from "angularfire2/auth";
 })
 export class LoginComponent implements OnInit {
   formLogin: FormGroup;
+  errorMessage: string;
+  formIsValid = true;
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -23,13 +25,23 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.afAuth.auth
-      .signInWithEmailAndPassword(
-        this.formLogin.value.email,
-        this.formLogin.value.password
-      )
-      .then((user) => {
-        console.log("USER: ", user);
-      });
+    if (this.formLogin.valid) {
+      this.formIsValid = true;
+      this.afAuth.auth
+        .signInWithEmailAndPassword(
+          this.formLogin.value.email,
+          this.formLogin.value.password
+        )
+        .then((user) => {
+          console.log("USER: ", user);
+        })
+        .catch((error) => {
+          this.errorMessage = error.message;
+          this.formIsValid = false;
+        });
+    } else {
+      this.errorMessage = "You have entered an invalid username or password";
+      this.formIsValid = false;
+    }
   }
 }
