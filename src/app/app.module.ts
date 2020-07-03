@@ -8,9 +8,10 @@ import { environment } from "../environments/environment";
 import { LoginComponent } from "./login/login.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { LoadingComponent } from './ui/loading/loading.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, LoadingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
