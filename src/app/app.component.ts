@@ -8,7 +8,7 @@ import { auth, User } from "firebase/app";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = "mastergym";
+  title = "MasterGym";
   user: User;
   loading: boolean = true;
 
