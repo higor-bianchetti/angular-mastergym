@@ -18,15 +18,4 @@ export class AppComponent {
       this.user = user;
     });
   }
-
-  login() {
-    this.afAuth.auth.signInWithEmailAndPassword(
-      "higorbianchetti@gmail.com",
-      "123456"
-    );
-  }
-
-  logout() {
-    this.afAuth.auth.signOut();
-  }
 }

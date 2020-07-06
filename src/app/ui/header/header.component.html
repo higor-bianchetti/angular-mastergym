@@ -22,7 +22,7 @@
         <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="customerDropdown">
           <a class="dropdown-item" ngbDropdownItem href="#">New Customer</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" ngbDropdownItem href="#">Customers List</a>
+          <a class="dropdown-item" ngbDropdownItem routerLink="/customers-list">Customers List</a>
         </div>
       </li>
 
@@ -50,4 +50,5 @@
       </li>
     </ul>
   </div>
+  <button class="btn btn-sm btn-danger" (click)="logout()">Logout</button>
 </nav>
