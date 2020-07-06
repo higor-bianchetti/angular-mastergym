@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFireModule } from "angularfire2";
@@ -12,6 +12,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LoadingComponent } from "./ui/loading/loading.component";
 import { HeaderComponent } from "./ui/header/header.component";
+import { CustomersListComponent } from "./customers-list/customers-list.component";
 
 @NgModule({
   declarations: [
@@ -19,10 +20,12 @@ import { HeaderComponent } from "./ui/header/header.component";
     LoginComponent,
     LoadingComponent,
     HeaderComponent,
+    CustomersListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
     NgbDropdownModule,
