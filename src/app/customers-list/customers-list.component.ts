@@ -12,11 +12,18 @@ export class CustomersListComponent implements OnInit {
   constructor(private db: AngularFirestore) {}
 
   ngOnInit() {
+    this.customers.length = 0;
     this.db
       .collection("customers")
-      .valueChanges()
+      .get()
       .subscribe((result) => {
-        this.customers = result;
+        result.docs.forEach((item) => {
+          let customer = item.data();
+          customer.id = item.id;
+          customer.ref = item.ref;
+
+          this.customers.push(customer);
+        });
       });
   }
 }
