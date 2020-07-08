@@ -8,44 +8,11 @@
   </form>
 
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3" *ngFor="let customer of customers">
       <div class="card">
-        <img src="assets/user.png" alt="User Image" class="card-img-top img-customer">
+        <img [src]="customer.img" [alt]="customer.name" class="card-img-top img-customer">
         <div class="card-body">
-          <h5 class="card-title">Customer 1</h5>
-          <a href="#" class="card-link">Edit</a>
-          <a href="#" class="card-link text-danger">Disable</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-3">
-      <div class="card">
-        <img src="assets/user.png" alt="User Image" class="card-img-top img-customer">
-        <div class="card-body">
-          <h5 class="card-title">Customer 2</h5>
-          <a href="#" class="card-link">Edit</a>
-          <a href="#" class="card-link text-danger">Disable</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-3">
-      <div class="card">
-        <img src="assets/user.png" alt="User Image" class="card-img-top img-customer">
-        <div class="card-body">
-          <h5 class="card-title">Customer 3</h5>
-          <a href="#" class="card-link">Edit</a>
-          <a href="#" class="card-link text-danger">Disable</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-3">
-      <div class="card">
-        <img src="assets/user.png" alt="User Image" class="card-img-top img-customer">
-        <div class="card-body">
-          <h5 class="card-title">Customer 4</h5>
+          <h5 class="card-title">{{customer.name}}</h5>
           <a href="#" class="card-link">Edit</a>
           <a href="#" class="card-link text-danger">Disable</a>
         </div>

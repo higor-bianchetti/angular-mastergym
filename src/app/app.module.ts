@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFireModule } from "angularfire2";
+import { AngularFirestore } from "angularfire2/firestore";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgbDropdownModule } from "@ng-bootstrap/ng-bootstrap";
 
@@ -31,7 +32,7 @@ import { CustomersListComponent } from "./customers-list/customers-list.componen
     NgbDropdownModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [AngularFireAuth],
+  providers: [AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

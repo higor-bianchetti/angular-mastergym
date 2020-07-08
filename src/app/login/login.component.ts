@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
         )
         .then((user) => {
           this.spinner.hide();
-          console.log("USER: ", user);
         })
         .catch((error) => {
           this.spinner.hide();
