@@ -5,7 +5,10 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFireModule } from "angularfire2";
 import { AngularFirestore } from "angularfire2/firestore";
 import { NgxSpinnerModule } from "ngx-spinner";
-import { NgbDropdownModule } from "@ng-bootstrap/ng-bootstrap";
+import {
+  NgbDropdownModule,
+  NgbProgressbarModule,
+} from "@ng-bootstrap/ng-bootstrap";
 
 import { environment } from "../environments/environment";
 import { LoginComponent } from "./login/login.component";
@@ -14,6 +17,7 @@ import { AppComponent } from "./app.component";
 import { LoadingComponent } from "./ui/loading/loading.component";
 import { HeaderComponent } from "./ui/header/header.component";
 import { CustomersListComponent } from "./customers-list/customers-list.component";
+import { NewCustomerComponent } from "./new-customer/new-customer.component";
 
 @NgModule({
   declarations: [
@@ -22,6 +26,7 @@ import { CustomersListComponent } from "./customers-list/customers-list.componen
     LoadingComponent,
     HeaderComponent,
     CustomersListComponent,
+    NewCustomerComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +35,7 @@ import { CustomersListComponent } from "./customers-list/customers-list.componen
     ReactiveFormsModule,
     NgxSpinnerModule,
     NgbDropdownModule,
+    NgbProgressbarModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [AngularFireAuth, AngularFirestore],
