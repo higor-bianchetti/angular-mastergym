@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFireModule } from "angularfire2";
 import { AngularFirestore } from "angularfire2/firestore";
+import { AngularFireStorageModule } from "angularfire2/storage";
 import { NgxSpinnerModule } from "ngx-spinner";
 import {
   NgbDropdownModule,
@@ -36,6 +37,7 @@ import { NewCustomerComponent } from "./new-customer/new-customer.component";
     NgxSpinnerModule,
     NgbDropdownModule,
     NgbProgressbarModule,
+    AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [AngularFireAuth, AngularFirestore],

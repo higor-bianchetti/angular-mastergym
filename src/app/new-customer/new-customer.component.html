@@ -62,14 +62,16 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="img">Image</label>
-          <input type="file" class="form-control-file" id="img" formControlName="img" placeholder="Upload an image">
+          <input type="file" class="form-control-file" id="img" formControlName="img" placeholder="Upload an image"
+            (change)="uploadImage($event)">
           <div *ngIf="customerForm.controls['img'].invalid && customerForm.controls['img'].dirty"
             class="alert alert-warning mt-3" role="alert">
             <span *ngIf="customerForm.controls['img'].errors.required">Image is required</span>
           </div>
         </div>
         <p>
-          <ngb-progressbar type="dark" [value]="75" [striped]="true" [animated]="true" height="20px"><i>50%</i>
+          <ngb-progressbar type="dark" [value]="uploadProgress" [striped]="true" [animated]="true" height="20px">
+            <i>{{uploadProgress}}%</i>
           </ngb-progressbar>
         </p>
       </div>
