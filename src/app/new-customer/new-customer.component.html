@@ -69,11 +69,14 @@
             <span *ngIf="customerForm.controls['img'].errors.required">Image is required</span>
           </div>
         </div>
-        <p>
+        <p *ngIf="showProgressBar">
           <ngb-progressbar type="dark" [value]="uploadProgress" [striped]="true" [animated]="true" height="20px">
             <i>{{uploadProgress}}%</i>
           </ngb-progressbar>
         </p>
+        <div class="preview-img" *ngIf="imageUrl">
+          <img [src]="imageUrl" alt="User Image">
+        </div>
       </div>
     </div>
 

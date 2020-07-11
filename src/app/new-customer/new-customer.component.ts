@@ -11,6 +11,8 @@ import { finalize } from "rxjs/operators";
 export class NewCustomerComponent implements OnInit {
   customerForm: FormGroup;
   uploadProgress: number = 0;
+  showProgressBar = false;
+  imageUrl: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,11 +35,14 @@ export class NewCustomerComponent implements OnInit {
   }
 
   uploadImage(event) {
-    const imgName =
-      this.customerForm.value.cpf || new Date().getTime().toString();
-    const file = event.target.files[0];
+    if (event.target.files.length > 0) {
+      this.showProgressBar = true;
+      this.imageUrl = "";
 
-    if (file) {
+      const imgName =
+        this.customerForm.value.cpf || new Date().getTime().toString();
+      const file = event.target.files[0];
+
       const typeFile = file.name
         .toString()
         .substring(file.name.toString().lastIndexOf("."));
@@ -54,12 +59,12 @@ export class NewCustomerComponent implements OnInit {
         .pipe(
           finalize(() => {
             ref.getDownloadURL().subscribe((url) => {
-              console.log(url);
+              this.showProgressBar = false;
+              this.imageUrl = url;
             });
           })
         )
         .subscribe();
-      // console.log("Uploaded Image");
     }
   }
 }
